@@ -13,7 +13,13 @@ load_dotenv()  # Load environment variables from .env file
 
 class EmailIngestor:
     def __init__(self):
-        # create user info object to store user information
+        self.mail: imaplib.IMAP4_SSL | None = None
+        required_vars: list[str] = ["USER_ID", "EMAIL_ADDRESS", "USER_NAME", "EMAIL_PASSWORD"]
+        missing_vars: list[str] = [var_name for var_name in required_vars if not os.getenv(var_name)]
+        if missing_vars:
+            missing: str = ", ".join(missing_vars)
+            raise ValueError(f"Missing required environment variables: {missing}")
+
         try:
             self.user_info = UserInfo(
                 user_id=os.environ["USER_ID"],
