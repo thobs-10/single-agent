@@ -222,3 +222,4 @@ project.md
 AGENTS.md
 copilot-instructions.md
 skills.md
+.github/agents/*
