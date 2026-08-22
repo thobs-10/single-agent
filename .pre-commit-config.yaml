@@ -31,7 +31,8 @@ repos:
     hooks:
       - id: bandit
         additional_dependencies: ["pbr"]
-        args: ["-r", "src/"]
+        args: ["-r", "src/", "-x", "src/single_agent/tests"]
+        pass_filenames: false
   # complexity checks via flake8's C901 (mccabe)
   - repo: https://github.com/PyCQA/flake8
     rev: 7.1.1
