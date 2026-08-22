@@ -3,7 +3,7 @@ requires = ["uv_build>=0.8.19,<0.9.0"]
 build-backend = "uv_build"
 
 [project]
-name = "single-agent"
+name = "email-summarizer"
 version = "0.1.0"
 description = "Local-first Gmail newsletter summarizer agent"
 readme = "README.md"
@@ -19,7 +19,7 @@ dependencies = [
 single-agent = "main:main"
 
 [tool.uv.build-backend]
-module-name = "single_agent"
+module-name = "email_summarizer"
 
 [tool.setuptools_scm]
 write_to = "_version.py"

@@ -1,6 +1,6 @@
 from email.message import EmailMessage
 
-from single_agent.tools.email_ingestor import EmailIngestor
+from email_summarizer.tools.email_ingestor import EmailIngestor
 
 
 def _make_ingestor(monkeypatch):

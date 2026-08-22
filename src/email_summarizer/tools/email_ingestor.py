@@ -5,8 +5,8 @@ from email.message import Message, EmailMessage
 from email.policy import default
 from typing import List, Tuple, Any
 from dotenv import load_dotenv
-from single_agent.models.models import UserInfo, EmailModel
-from single_agent.utils.retry import retry_with_backoff, RetryError
+from email_summarizer.models.models import UserInfo, EmailModel
+from email_summarizer.utils.retry import retry_with_backoff, RetryError
 
 load_dotenv()  # Load environment variables from .env file
 

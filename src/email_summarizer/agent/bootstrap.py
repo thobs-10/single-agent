@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 
-from single_agent.config.settings import AppSettings
+from email_summarizer.config.settings import AppSettings
 
 
 @dataclass(frozen=True)

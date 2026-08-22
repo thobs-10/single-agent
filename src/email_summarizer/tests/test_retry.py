@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from single_agent.utils.retry import RetryError, retry_with_backoff
+from email_summarizer.utils.retry import RetryError, retry_with_backoff
 
 
 def test_retry_with_backoff_succeeds_after_retry(
@@ -16,7 +16,7 @@ def test_retry_with_backoff_succeeds_after_retry(
             raise TimeoutError("transient timeout")
         return "ok"
 
-    monkeypatch.setattr("single_agent.utils.retry.time.sleep", lambda _: None)
+    monkeypatch.setattr("email_summarizer.utils.retry.time.sleep", lambda _: None)
 
     result = retry_with_backoff(
         operation=flaky_operation,
@@ -40,7 +40,7 @@ def test_retry_with_backoff_raises_after_exhausting_attempts(
         calls["count"] += 1
         raise TimeoutError("still failing")
 
-    monkeypatch.setattr("single_agent.utils.retry.time.sleep", lambda _: None)
+    monkeypatch.setattr("email_summarizer.utils.retry.time.sleep", lambda _: None)
 
     with pytest.raises(
         RetryError, match="always failing operation failed after 3 attempts"
