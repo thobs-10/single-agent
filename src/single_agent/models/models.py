@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from pydantic import BaseModel, Field
 
 
-
 class UserPrompt(BaseModel):
     """User prompt data model."""
 
@@ -12,12 +11,14 @@ class UserPrompt(BaseModel):
     top_p: float = Field(default=1.0, ge=0.0, le=1.0)
     frequency_penalty: float = Field(default=0.0, ge=-2.0, le=2.0)
 
+
 # data model  for the response from the model
 class ModelResponse(BaseModel):
     """Model response data model."""
 
     response: str = Field(default="")
     tokens_used: int = Field(default=0, ge=0)
+
 
 @dataclass
 class UserInfo:
@@ -34,6 +35,7 @@ class UserInfo:
             raise ValueError("email cannot be empty")
         if not self.name:
             raise ValueError("name cannot be empty")
+
 
 class EmailModel(BaseModel):
     """Email data model."""
